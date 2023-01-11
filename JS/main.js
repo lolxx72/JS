@@ -41,16 +41,18 @@ function  tomarPedidos(){
         }
         console.log('El pedido del cliente ' + dataCliente + ' es ' + eleccionTablas)
 }
- 
+
+
 for(let i=1; i<=5; i+1){
+
 tomarPedidos();
+console.log('Pedido N° '+ i)
 
 if (i == 5) {
     break;
 }
 
-console.log('Pedido N° '+ i)
 }
-console.log('Fin del pedido')
+console.log('Fin del día')
 
     
