@@ -2,6 +2,25 @@ alert('Bienvenido a la Fabrica de Sushi');
 
 console.log('Bienvenidos a la Fabrica de Sushi')
 
+class Productos {
+
+    constructor(nombre, precio, piezas){
+        this.nombre;
+        this.precio;
+        this.piezas;
+    }
+}
+
+const Combo1= new Productos('Combo QATAR', 5760, 40 )
+
+const Combo2=  new Productos('Combo ROMA', 3200, 40)
+
+const Combo3= new Productos('Combo CRISPY', 4490, 28)
+
+const Combo4= new Productos('Combo FRIENDS', 3700, 28)
+
+const Combos= [Combo1, Combo2, Combo3, Combo4]
+console.log(Productos)
 
 function  tomarPedidos(){
     let eleccionTablas = prompt('Ingrese la tabla elegida');
@@ -37,18 +56,24 @@ function  tomarPedidos(){
         
             }
 
+            if(eleccionTablas == 'Combo FRIENDS' || 'Combo CRISPY'){
+                alert('Selecciona las últimas 12 piezas de tu combo y completa las 40 unidades: *-HOT BONDIOLA QUESO y MAYO CON VERDEO  *-POLLO CRUNCH QUESO VERDEO Y EMPANADO DE BATATAS FRITAS *-KANIKAMA CRUNCH QUESO, POMODORO Y MAIZ *-ROLL SURTIDO LANGOSTINOS *-ROLL MANGO, QUESO Y LANGOSTINO')
+                prompt('Elija 12 piezas de regalo')
+            }
+
         break;
         }
-        console.log('El pedido del cliente ' + dataCliente + ' es ' + eleccionTablas)
+
 }
 
 
 for(let i=1; i<=5; i+1){
 
 tomarPedidos();
-console.log('Pedido N° '+ i)
+console.log('El pedido del cliente ' + dataCliente + ' es ' + eleccionTablas)
+alert('Pedido N° '+ i)
 
-if (i == 5) {
+if (i === 5) {
     break;
 }
 
