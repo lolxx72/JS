@@ -19,18 +19,21 @@ const Combo3= new Productos('Combo CRISPY', 4490, 28)
 
 const Combo4= new Productos('Combo FRIENDS', 3700, 28)
 
-const Combos= [Combo1, Combo2, Combo3, Combo4]
-console.log(Productos)
+for(let i=0; i<=5; i++){
+    let dataCliente = prompt('Ingrese su nombre');
+    
+    tomarPedidos();
+    alert('Pedido N° '+ i)
+    
+    if (i === 5) {
+        break;
+    }
+    
+    }
+
 
 function  tomarPedidos(){
     let eleccionTablas = prompt('Ingrese la tabla elegida');
-
-    console.log('La eleccion del cliente es '+ eleccionTablas);
-
-    let dataCliente = prompt('Ingrese su nombre');
-
-    console.log('El nombre del cliente es ' + dataCliente);
-
     while (eleccionTablas !== 0) {
     
         switch  (eleccionTablas) {
@@ -56,28 +59,12 @@ function  tomarPedidos(){
         
             }
 
-            if(eleccionTablas == 'Combo FRIENDS' || 'Combo CRISPY'){
-                alert('Selecciona las últimas 12 piezas de tu combo y completa las 40 unidades: *-HOT BONDIOLA QUESO y MAYO CON VERDEO  *-POLLO CRUNCH QUESO VERDEO Y EMPANADO DE BATATAS FRITAS *-KANIKAMA CRUNCH QUESO, POMODORO Y MAIZ *-ROLL SURTIDO LANGOSTINOS *-ROLL MANGO, QUESO Y LANGOSTINO')
-                prompt('Elija 12 piezas de regalo')
-            }
-
         break;
         }
+        console.log('El pedido del cliente es ' + eleccionTablas)
 
 }
 
-
-for(let i=1; i<=5; i+1){
-
-tomarPedidos();
-console.log('El pedido del cliente ' + dataCliente + ' es ' + eleccionTablas)
-alert('Pedido N° '+ i)
-
-if (i === 5) {
-    break;
-}
-
-}
 console.log('Fin del día')
 
     
