@@ -2,41 +2,39 @@ alert('Bienvenido a la Fabrica de Sushi');
 
 console.log('Bienvenidos a la Fabrica de Sushi')
 
-class Productos {
-
-    constructor(nombre, precio, piezas){
-        this.nombre;
-        this.precio;
-        this.piezas;
+const combos = [
+    {
+        nombre: "Combo QATAR",
+        precio: 5760,
+        categoria: "Clásico",
+    },
+    {
+        nombre: "Combo ROMA",
+        precio: 3200,
+        categoria: "Variado",
+    },
+    {
+        nombre: "Combo CRISPY",
+        precio: 4490,
+        categoria: "Sabroso",
+    },
+    {
+        nombre: "Combo FRIENDS",
+        precio: 3700,
+        categoria: "Variado",
     }
-}
+];
 
-const Combo1= new Productos('Combo QATAR', 5760, 40 )
 
-const Combo2=  new Productos('Combo ROMA', 3200, 40)
-
-const Combo3= new Productos('Combo CRISPY', 4490, 28)
-
-const Combo4= new Productos('Combo FRIENDS', 3700, 28)
 
 for(let i=0; i<=5; i++){
-    let dataCliente = prompt('Ingrese su nombre');
+    const nombreCombo = prompt("Ingrese nombre del combo");
+    const encontrar = combos.find( (combo) => combo.nombre === nombreCombo);
+    console.log(encontrar);
     
-    tomarPedidos();
-    alert('Pedido N° '+ i)
+    while (nombreCombo !== 0) {
     
-    if (i === 5) {
-        break;
-    }
-    
-    }
-
-
-function  tomarPedidos(){
-    let eleccionTablas = prompt('Ingrese la tabla elegida');
-    while (eleccionTablas !== 0) {
-    
-        switch  (eleccionTablas) {
+        switch  (nombreCombo) {
             case 'Combo QATAR':
                 alert(' $5760 *6 NIGURIS CON PALTA. *6 ROLL HOT SENSATION, salmon, queso y palta, rebozado al panko y frito. *6 ROLL SENSATION. salmon, queso y palta. *6 ROLL PARAISO DE LANGOSTINOS. langostinos, queso, corona de batatas frtias con salsa de maracuya y mango.4 Geishas de lamina de pepino con relleno salmon y queso. *6 ROLL EVINO SALMON, queso, verdeo, langostinos y recubierto por salmon. *6 ROLL EVINO VERDE, queso, langostino y recubierto por palta.');
             break;
@@ -61,6 +59,18 @@ function  tomarPedidos(){
 
         break;
         }
+
+    alert('Pedido N° '+ i)
+    
+    if (i === 5) {
+        break;
+    }
+    
+    }
+
+
+function  tomarPedidos(){
+    
         console.log('El pedido del cliente es ' + eleccionTablas)
 
 }
