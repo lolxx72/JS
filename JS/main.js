@@ -22,15 +22,37 @@ const combos = [
         nombre: "Combo FRIENDS",
         precio: 3700,
         categoria: "Variado",
+    },
+    {
+        nombre: "Combo EXCLUSIVE",
+        precio: 7100,
+        categoria: "Variado",
+    },
+    {
+        nombre: "Combo SALMON",
+        precio: 8100,
+        categoria: "Clasico",
+    },
+    {
+        nombre: "Combo EXOTIC",
+        precio: 6100,
+        categoria: "Sobresaliente",
     }
 ];
 
 
 
-for(let i=0; i<=5; i++){
-    const nombreCombo = prompt("Ingrese nombre del combo");
+for(let i=0; i<=3; i++){
+    let dataCliente = prompt('Ingrese el nombre al que estará el pedido!');
+
+    console.log('El nombre del cliente es ' + dataCliente);
+
+    let nombreCombo = prompt("Ingrese nombre del combo");
+
     const encontrar = combos.find( (combo) => combo.nombre === nombreCombo);
-    console.log(encontrar);
+
+    console.log('El combo elegido por el cliente ' + dataCliente + ' es ' + nombreCombo);
+    
     
     while (nombreCombo !== 0) {
     
@@ -50,6 +72,18 @@ for(let i=0; i<=5; i++){
             case 'Combo FRIENDS':
                 alert('$3700 *6 Rolls Mex Style. Salmón, queso con corona de guacamole, recubierto con sésamo tostado. *6 Rolls Kanikama Crunch. Kanikama empanizado y frito, queso y verdeo, recubierto con sésamo tostado. *6 Rolls Evino Green. Langostino, queso y palta, recubierto con sésamo tostado. *3 Rolls Chicken Crunch. Pollo empanizado y frito, queso y verdeo, recubierto con sésamo tostado. *3 Rolls Paraiso mango sweeet. mango, queso y corona de batatas fritas, recubierto con sésamo tostado. *4 Geishas de pepino vegetarianas.')
             break;
+
+            case 'Combo EXCLUSIVE':
+                alert(' $7100 *6 Rolls Sensation. Salmón, queso y palta, recubierto con sésamo tostado. *-3 Rolls Philadelphia. Salmón, queso y verdeo, recubierto con sésamo tostado.*-6 Rolls Ahumado. Salmón ahumado y palta, recubierto con sésamo tostado. *-5 Niguris de Salmon & Salmon ahumado. *-4 Geishas de Salmon y Langostinos *-4 Sashimis de Salmon & Salmon ahumado')
+            break;
+        
+            case 'Combo SALMON':
+                alert('$8100 *6 Rolls Sensation. Salmón, queso y palta, recubierto con sésamo tostado. *-6 Rolls Philadelphia. Salmón, queso y verdeo, recubierto con sésamo tostado. *-6 Rolls New York. Salmón y palta, recubierto con sésamo tostado. *-4 Geishas de Salmon. *-6 Sashimis de Salmon')
+            break;
+        
+            case 'Combo EXOTIC':
+                alert('$6100 *6 Rolls Sensation. Salmón, queso y palta, recubierto con sésamo tostado. *-4 Rolls Philadelphia. Salmón, queso y verdeo, recubierto con sésamo tostado. *-6 Rolls Topical. Salmón, queso y mango, recubierto con sésamo tostado. *-6 Rolls Mediterráneo. Salmón, queso, tomate y albahaca, recubierto con sésamo tostado. *-3 Geishas de Salmon. *-3 Tamago Geishas')
+            break;
         
             default:
                 alert('No se ha ingresado ninguna tabla de sushi!')
@@ -60,20 +94,13 @@ for(let i=0; i<=5; i++){
         break;
         }
 
-    alert('Pedido N° '+ i)
-    
-    if (i === 5) {
+        console.log(encontrar);
+
+    if (i === 3) {
         break;
     }
     
     }
-
-
-function  tomarPedidos(){
-    
-        console.log('El pedido del cliente es ' + eleccionTablas)
-
-}
 
 console.log('Fin del día')
 
