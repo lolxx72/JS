@@ -1,107 +1,106 @@
-alert('Bienvenido a la Fabrica de Sushi');
+alert('Bienvenido a Librerías Marie! - Elija el producto deseado a continuación:')
 
-console.log('Bienvenidos a la Fabrica de Sushi')
 
-const combos = [
-    {
-        nombre: "Combo QATAR",
-        precio: 5760,
-        categoria: "Clásico",
+const Productos = [
+    {   nombre : "Lapices",
+        precio: 100
     },
     {
-        nombre: "Combo ROMA",
-        precio: 3200,
-        categoria: "Variado",
+        nombre : "Cuadernillos",
+        precio: 250
     },
     {
-        nombre: "Combo CRISPY",
-        precio: 4490,
-        categoria: "Sabroso",
+        nombre : "Lapiceras",
+        precio: 150
     },
     {
-        nombre: "Combo FRIENDS",
-        precio: 3700,
-        categoria: "Variado",
+        nombre : "Mochilas lisas",
+        precio: 8000
     },
     {
-        nombre: "Combo EXCLUSIVE",
-        precio: 7100,
-        categoria: "Variado",
-    },
-    {
-        nombre: "Combo SALMON",
-        precio: 8100,
-        categoria: "Clasico",
-    },
-    {
-        nombre: "Combo EXOTIC",
-        precio: 6100,
-        categoria: "Sobresaliente",
+        nombre : "Mochilas diseño variado",
+        precio: 25000
     }
-];
+    ];
 
+    function obtenerProducto(seleccion) {
 
+        if (Productos.length >= seleccion) {
+            return Productos[seleccion - 1];
+        }
+        return null;
 
-for(let i=0; i<=3; i++){
-    let dataCliente = prompt('Ingrese el nombre al que estará el pedido!');
+    }
 
-    console.log('El nombre del cliente es ' + dataCliente);
+    function obtenerStringProducto(producto){
+        return producto.nombre + " - $" + producto.precio + " c/u";
+    }
 
-    let nombreCombo = prompt("Ingrese nombre del combo");
+    function obtenerListadeProducto(){
+        let lista = "";
 
-    const encontrar = combos.find( (combo) => combo.nombre === nombreCombo);
-
-    console.log('El combo elegido por el cliente ' + dataCliente + ' es ' + nombreCombo);
-    
-    
-    while (nombreCombo !== 0) {
-    
-        switch  (nombreCombo) {
-            case 'Combo QATAR':
-                alert(' $5760 *6 NIGURIS CON PALTA. *6 ROLL HOT SENSATION, salmon, queso y palta, rebozado al panko y frito. *6 ROLL SENSATION. salmon, queso y palta. *6 ROLL PARAISO DE LANGOSTINOS. langostinos, queso, corona de batatas frtias con salsa de maracuya y mango.4 Geishas de lamina de pepino con relleno salmon y queso. *6 ROLL EVINO SALMON, queso, verdeo, langostinos y recubierto por salmon. *6 ROLL EVINO VERDE, queso, langostino y recubierto por palta.');
-            break;
-        
-            case 'Combo ROMA':
-                alert(' $3200 *6 Roll relleno de SALMON alimonado y queso Con salsa mayonesa de palta y wasabi *6 Roll tomate queso palta y rucula  *6 Roll kanikama HOT. kanikama, queso al panko frito  *6 Roll mayonesa de ave ( pollo mayo y polvo de ajo) y palta sin queso. *4 Niguiris de lango con tirita de alga y entre el lango y la bola de arroz una micro dosis de wasabi. *6 chicken crunch con queso y con corona de cebolla caramelizada sesamo tostado. *6 Roll de zanahoria, queso, pepino y palta con cobertura de semillas de sesamo')
-            break;
-        
-            case 'Combo CRISPY':
-                alert('$4490 *6 Rolls Sensation. Salmón, queso y palta, recubierto con sésamo tostado. *4 Rolls Philadelphia. Salmón, queso y verdeo, recubierto con sésamo tostado. *6 Rolls Hot Sensation. Salmón, queso y palta, al PANKO frito. *6 Rolls Paraiso. Salmon, queso y corona de batatas fritas con salsa de mango y maracuyá, recubierto con sésamo tostado. *6 Rolls Evino Crunch, langostino al panko frito dentro del roll con queso y verdeo, con cobertura de semillas de sésamo. ')
-            break;
-        
-            case 'Combo FRIENDS':
-                alert('$3700 *6 Rolls Mex Style. Salmón, queso con corona de guacamole, recubierto con sésamo tostado. *6 Rolls Kanikama Crunch. Kanikama empanizado y frito, queso y verdeo, recubierto con sésamo tostado. *6 Rolls Evino Green. Langostino, queso y palta, recubierto con sésamo tostado. *3 Rolls Chicken Crunch. Pollo empanizado y frito, queso y verdeo, recubierto con sésamo tostado. *3 Rolls Paraiso mango sweeet. mango, queso y corona de batatas fritas, recubierto con sésamo tostado. *4 Geishas de pepino vegetarianas.')
-            break;
-
-            case 'Combo EXCLUSIVE':
-                alert(' $7100 *6 Rolls Sensation. Salmón, queso y palta, recubierto con sésamo tostado. *-3 Rolls Philadelphia. Salmón, queso y verdeo, recubierto con sésamo tostado.*-6 Rolls Ahumado. Salmón ahumado y palta, recubierto con sésamo tostado. *-5 Niguris de Salmon & Salmon ahumado. *-4 Geishas de Salmon y Langostinos *-4 Sashimis de Salmon & Salmon ahumado')
-            break;
-        
-            case 'Combo SALMON':
-                alert('$8100 *6 Rolls Sensation. Salmón, queso y palta, recubierto con sésamo tostado. *-6 Rolls Philadelphia. Salmón, queso y verdeo, recubierto con sésamo tostado. *-6 Rolls New York. Salmón y palta, recubierto con sésamo tostado. *-4 Geishas de Salmon. *-6 Sashimis de Salmon')
-            break;
-        
-            case 'Combo EXOTIC':
-                alert('$6100 *6 Rolls Sensation. Salmón, queso y palta, recubierto con sésamo tostado. *-4 Rolls Philadelphia. Salmón, queso y verdeo, recubierto con sésamo tostado. *-6 Rolls Topical. Salmón, queso y mango, recubierto con sésamo tostado. *-6 Rolls Mediterráneo. Salmón, queso, tomate y albahaca, recubierto con sésamo tostado. *-3 Geishas de Salmon. *-3 Tamago Geishas')
-            break;
-        
-            default:
-                alert('No se ha ingresado ninguna tabla de sushi!')
-            break;
-        
-            }
-
-        break;
+        for (let i = 0; i < Productos.length; i++) {
+            lista += `${i+1}) ${obtenerStringProducto(Productos[i])}`;
         }
 
-        console.log(encontrar);
-
-    if (i === 3) {
-        break;
-    }
-    
+        return lista;
     }
 
-console.log('Fin del día')
+    let Carrito = {
+        arrayProductos : [],
+        obtenerTotal: function() {
+            let suma = 0;
 
+            for (let p of this.arrayProductos) {
+
+                suma += p.precio * p.cantidad;
+            }
+
+            return suma;
+        },
+
+        Agregar: function(producto, cantidad) {
+            this.arrayProductos.push({ producto: producto, cantidad: cantidad });
+        },
+
+        Vaciar: function() {
+            this.arrayProductos = [];
+        }
+    }
+
+    function compraProductos(){
+
+        let listado = parseInt(prompt(obtenerListadeProducto()));
+
+        let producto = obtenerProducto(listado);
+
+        if (producto != null) {
+            cantidad = parseInt(prompt("Cuantas desea llevar?"));
+            Carrito.Agregar(producto, cantidad);
     
+            compra = parseInt(prompt('Quiere agregar mas cosas al carrito? 1)Si 2)No'))
+            if( compra == 1 ){
+                compraProductos();
+            }
+            else
+            {
+                alert(`Total a pagar: $${Carrito.obtenerTotal()} `)
+            }
+        }
+        else{
+            alert("Opcion Erronea");
+
+            compraProductos();
+        }
+    }
+
+    compraProductos();
+
+    const envio = () => {
+        if (obtenerTotal >= 10000) {
+        alert("El envio es gratuito")
+        }else{
+        obtenerTotal += 1000
+        alert("El costo de envio es de 1000, el total es: " + obtenerTotal)
+        }
+    }
