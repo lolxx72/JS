@@ -1,118 +1,140 @@
-alert('Bienvenido a Librerías Marie! - Elija el producto deseado a continuación:')
-
-
 const Productos = [
-    {   nombre : "Lapices",
-        precio: 100
-    },
-    {
-        nombre : "Cuadernillos",
-        precio: 250
-    },
-    {
-        nombre : "Lapiceras",
-        precio: 150
-    },
-    {
-        nombre : "Mochilas lisas",
-        precio: 8000
-    },
-    {
-        nombre : "Mochilas diseño variado",
-        precio: 25000
-    }
-    ];
+  {
+    id: 1,
+    nombre: "Lapices",
+    precio: 100,
+  },
+  {
+    id: 2,
+    nombre: "Cuadernillos",
+    precio: 250,
+  },
+  {
+    id: 3,
+    nombre: "Lapiceras",
+    precio: 150,
+  },
+  {
+    id: 4,
+    nombre: "Mochilas lisas",
+    precio: 8000,
+  },
+  {
+    id: 5,
+    nombre: "Mochilas diseño variado",
+    precio: 25000,
+  },
+];
 
-const divisa = '$';
+let Carrito = [];
 
-const carritoItems = document.querySelector('#items');
+const divisa = "$";
 
-const carritoHTML = document.querySelector('#carrito');
+const carritoItems = document.querySelector("#items");
 
-const totalHTML = document.querySelector('#total');
+const carritoHTML = document.querySelector("#carrito");
 
-const botonVaciar = document.querySelector('#boton-vaciar');
+const totalHTML = document.querySelector("#total");
 
-    function obtenerProducto(seleccion) {
+const botonVaciar = document.querySelector("#boton-vaciar");
 
-        if (Productos.length >= seleccion) {
-            return Productos[seleccion - 1];
-        }
-        return null;
+function renderizarProductos() {
+  Productos.forEach((info) => {
+    const contenedor = document.createElement("div");
+    contenedor.classList.add("card", "col-sm-4");
 
-    }
+    const CardBody = document.createElement("div");
+    CardBody.classList.add("card-body");
 
-    function obtenerStringProducto(producto){
-        return producto.nombre + " - $" + producto.precio + " c/u";
-    }
+    const miTitle = document.createElement("h5");
+    miTitle.classList.add("card-title");
+    miTitle.textContent = info.nombre;
 
-    function obtenerListadeProducto(){
-        let lista = "";
+    const miImagen = document.createElement("img");
+    miImagen.classList.add("img-fluid");
+    miImagen.setAttribute("src", info.imagen);
 
-        for (let i = 0; i < Productos.length; i++) {
-            lista += `${i+1}) ${obtenerStringProducto(Productos[i])}`;
-        }
+    const miProdPrecio = document.createElement("p");
+    miProdPrecio.classList.add("card-text");
+    miProdPrecio.textContent = `${info.precio}${divisa}`;
 
-        return lista;
-    }
+    const miBoton = document.createElement("button");
+    miBoton.classList.add("btn", "btn-primary");
+    miBoton.textContent = "Agregar";
+    miBoton.setAttribute("marcador", info.id);
+    miBoton.addEventListener("click", anyadirProductoAlCarrito);
 
-    let Carrito = {
-        arrayProductos : [],
-        obtenerTotal: function() {
-            let suma = 0;
+    CardBody.append(miImagen, miTitle, miProdPrecio, miBoton);
 
-            for (let p of this.arrayProductos) {
+    contenedor.append(CardBody);
 
-                suma += p.precio * p.cantidad;
-            }
+    carritoItems.append(contenedor);
+  });
+}
 
-            return suma;
-        },
+function anyadirProductoAlCarrito(evento) {
+  Carrito.push(evento.target.getAttribute("marcador"));
 
-        Agregar: function(producto, cantidad) {
-            this.arrayProductos.push({ producto: producto, cantidad: cantidad });
-        },
+  renderizarCarrito();
+}
 
-        Vaciar: function() {
-            this.arrayProductos = [];
-        }
-    }
+function renderizarCarrito() {
+  carritoHTML.textContent = "";
 
-    function compraProductos(){
+  const carritoSinDuplicados = [new Set(Carrito)];
+  carritoSinDuplicados.forEach((item) => {
+    const miItem = Productos.filter((itemProductos) => {
+      return itemProductos.id === parseInt(item);
+    });
 
-        let listado = parseInt(prompt(obtenerListadeProducto()));
+    const numeroUnidadesItem = Carrito.reduce((total, itemId) => {
+      return itemId === item ? (total += 1) : total;
+    }, 0);
 
-        let producto = obtenerProducto(listado);
+    const miCarrito = document.createElement("li");
+    miCarrito.classList.add("list-group-item", "text-right", "mx-2");
+    miCarrito.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
 
-        if (producto != null) {
-            cantidad = parseInt(prompt("Cuantas desea llevar?"));
-            Carrito.Agregar(producto, cantidad);
-    
-            compra = parseInt(prompt('Quiere agregar mas cosas al carrito? 1)Si 2)No'))
-            if( compra == 1 ){
-                compraProductos();
-            }
-            else
-            {
-                alert(`Total a pagar: $${Carrito.obtenerTotal()} `)
-            }
-        }
-        else{
-            alert("Opcion Erronea");
+    const miBoton = document.createElement("button");
+    miBoton.classList.add("btn", "btn-danger", "mx-5");
+    miBoton.textContent = "Eliminar Producto";
+    miBoton.style.marginLeft = "1rem";
+    miBoton.dataset.item = item;
+    miBoton.addEventListener("click", borrarItemCarrito);
 
-            compraProductos();
-        }
-    }
+    miCarrito.append(miBoton);
+    carritoHTML.append(miCarrito);
+  });
+  totalHTML.textContent = calcularTotal();
+}
 
-    compraProductos();
+function borrarItemCarrito(evento) {
+  const id = evento.target.dataset.item;
 
-    const envio = () => {
+  Carrito = Carrito.filter((carritoId) => {
+    return carritoId !== id;
+  });
 
-        if (obtenerTotal >= 10000) {
-        alert("El envio es gratuito")
-        }
-        else{
-        obtenerTotal += 1000
-        alert("El costo de envio es de 1000, el total es: " + obtenerTotal)
-        }
-    }
+  renderizarCarrito();
+}
+
+function vaciarCarrito() {
+  Carrito = [];
+
+  renderizarCarrito();
+}
+
+botonVaciar.addEventListener("click", vaciarCarrito);
+
+function calcularTotal() {
+  return Carrito.reduce((total, item) => {
+    const miItemTotal = Productos.filter((itemProd) => {
+      return itemProd.id === parseInt(item);
+    });
+
+    return total + miItemTotal[0].precio;
+  }, 0).toFixed(2);
+}
+
+renderizarProductos();
+renderizarCarrito();
