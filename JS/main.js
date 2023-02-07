@@ -83,6 +83,7 @@ function renderizarCarrito() {
 
   const carritoSinDuplicados = [new Set(Carrito)];
   carritoSinDuplicados.forEach((item) => {
+    
     const miItem = Productos.filter((itemProductos) => {
       return itemProductos.id === parseInt(item);
     });
@@ -93,7 +94,7 @@ function renderizarCarrito() {
 
     const miCarrito = document.createElement("li");
     miCarrito.classList.add("list-group-item", "text-right", "mx-2");
-    miCarrito.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
+    miCarrito.textContent = `${numeroUnidadesItem} x ${miItem.nombre} - ${miItem.precio}${divisa}`;
 
     const miBoton = document.createElement("button");
     miBoton.classList.add("btn", "btn-danger", "mx-5");
