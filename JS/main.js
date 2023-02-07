@@ -23,6 +23,16 @@ const Productos = [
     }
     ];
 
+const divisa = '$';
+
+const carritoItems = document.querySelector('#items');
+
+const carritoHTML = document.querySelector('#carrito');
+
+const totalHTML = document.querySelector('#total');
+
+const botonVaciar = document.querySelector('#boton-vaciar');
+
     function obtenerProducto(seleccion) {
 
         if (Productos.length >= seleccion) {
@@ -97,9 +107,11 @@ const Productos = [
     compraProductos();
 
     const envio = () => {
+
         if (obtenerTotal >= 10000) {
         alert("El envio es gratuito")
-        }else{
+        }
+        else{
         obtenerTotal += 1000
         alert("El costo de envio es de 1000, el total es: " + obtenerTotal)
         }
