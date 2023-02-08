@@ -137,5 +137,19 @@ function calcularTotal() {
   }, 0).toFixed(2);
 }
 
+
+function leerCarritoEnLS () {
+
+  let devolverCarrito = [];
+
+  const carritoLS = localStorage.getItem("Carrito");
+
+  if(carritoLS !== null) {
+      devolverCarrito = JSON.parse(carritoLS);
+  }
+
+  return devolverCarrito;
+}
+
 renderizarProductos();
 renderizarCarrito();
