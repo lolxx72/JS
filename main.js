@@ -1,23 +1,17 @@
-const Productos = [
-    {id: 1, nombre: "Lapices clásicos", tipo: "libreria", cantidad: 1, desc: "Lapiz clasico", precio: 100, img: './img/lapiz.png'},
-    {id: 2, nombre: "Lapices de colores", tipo: "libreria", cantidad: 1, desc: "Lapices de colores x12u", precio: 2500, img: './img/colores.jpg'},
-    {id: 3, nombre: "Fibras de colores", tipo: "librería", cantidad: 1, desc: "Fibras de colores x6u", precio: 2000, img: './img/fibras.jpg'},
-    {id: 4, nombre: "Cuaderno Rivadavia", tipo: "cuadernos", cantidad: 1, desc: "Cuaderno Rivadavia hojas rayadas", precio: 560, img: './img/rivadavia.jpg'},
-    {id: 5, nombre: "Cuaderno Exito", tipo: "cuadernos", cantidad: 1, desc: "Cuaderno Exito hojas rayadas", precio: 800, img: './img/exito.jpg'},
-    {id: 6, nombre: "Cuadernillo hoja rayada", tipo: "cuadernillos", cantidad: 1, desc: "Cuadernillo hojas rayadas", precio: 1000, img: './img/cuadernillos.jpg'},
-    {id: 7, nombre: "Cuadernillo hoja a cuadros", tipo: "cuadernillos", cantidad: 1, desc: "Cuadernillo hojas a cuadros", precio: 1000, img: './img/cuadernillos.jpg'},
-    {id: 8, nombre: "Carpeta diseño variado", tipo: "carpetas", cantidad: 1, desc: "Carpetas diseño random", precio: 500, img: './img/carpetas.jpg'},
-    {id: 9, nombre: "Calculadora cientifica Casio", tipo: "variado", cantidad: 1, desc: "Calculadora cientifica Casio", precio: 4500, img: './img/casio.jpg'},
-    {id: 10, nombre: "Calculadora", tipo: "variado", cantidad: 1, desc: "Calculadora clásica", precio: 700, img: './img/calcu.jpg'},
-    {id: 11, nombre: "Set de fibras Sharpie", tipo: "libreria", cantidad: 1, desc: "Set de fibras Sharpie x16", precio: 6000, img: './img/sharpie.jpg'},
-    {id: 12, nombre: "Kit League of Legends (Carpeta + Cartuchera)", tipo: "variado", cantidad: 1, desc: "Carpeta y cartu personalizadas de LoL", precio: 3500, img: './img/lol.jpg'},
-    {id: 13, nombre: "Agendas 2023", tipo: "variado", cantidad: 1, desc: "Agendas 2023", precio: 850, img: './img/agendas.jpg'},
-    {id: 14, nombre: "Libro de notas", tipo: "cuadernillos", cantidad: 1, desc: "Cuaderno para notas", precio: 1400, img: './img/notas.png'},
-    {id: 15, nombre: "Gomas para borrar", tipo: "libreria", cantidad: 1, desc: "Gomas", precio: 70, img: './img/gomas.jpg'},
-    {id: 16, nombre: "Mochila lisa", tipo: "variado", cantidad: 1, desc: "Mochila lisa negra", precio: 6500, img: './img/mochilisa.jpg'},
-    {id: 17, nombre: "Mochila animada", tipo: "variado", cantidad: 1, desc: "Mochila con animación variada", precio: 27500, img: './img/mochidiseño.png'},
-    {id: 18, nombre: "Mochila diseñada", tipo: "variado", cantidad: 1, desc: "Mochila con diseño variado", precio: 10250, img: './img/mochianimada.jpg'},
-]
+fetch('json/productos.json')
+.then((res) => res.json())
+.then((data) => {
+    data.forEach((product) => {
+        productContainer.innerHTML += `
+        <div class="shop-item">
+        <span class="shop-item-title">${product.nombre}</span>
+        <img class="shop-item-image" src="${product.img}">
+        <div class="shop-item-details">
+        <span class="shop-item-price">$ ${product.precio}</span>
+        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+        </div>
+    </div>`})
+});
 
 const contenedorProductos = document.getElementById('contenedor-productos')
 
@@ -149,5 +143,4 @@ contenedorModal.addEventListener('click', (event) =>{
 modalCarrito.addEventListener('click', (event) => {
     event.stopPropagation() 
 })
-
 
