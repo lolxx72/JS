@@ -1,0 +1,100 @@
+[
+    {
+        "id": 1,
+        "nombre": "Agenda",
+        "precio": 2000 ,
+        "descripcion": "Agenda de color variado x 200 hojas rayadas",
+        "img": "img/agendas.jpg",
+        "cantidad": 1
+    },
+
+    {
+        "id": 2,
+        "nombre": "Calculadora",
+        "precio": 1500,
+        "descripcion": "Calculadora clásica, solo en negro.",
+        "img": "img/calcu.jpg",
+        "cantidad": 1
+    },
+
+    {
+        "id": 3,
+        "nombre": "Cuadernillos",
+        "precio": 550,
+        "descripcion": "Cuadernillos de hoja rayada/cuadriculada",
+        "img": "img/cuadernillos.jpg",
+        "cantidad": 1
+    },
+
+    {
+        "id": 4,
+        "nombre": "Calculadora científica Casio",
+        "precio": 6500,
+        "descripcion": "Calculadora científica marca Casio",
+        "img": "img/casio.jpg",
+        "cantidad": 1
+    },
+
+    {
+        "id": 5,
+        "nombre": "Carpeta clásica",
+        "precio": 650,
+        "descripcion": "Carpetas de tapa dura, diseños básicos",
+        "img": "img/carpetas.jpg",
+        "cantidad": 1
+    },
+
+    {
+        "id": 6,
+        "nombre": "Lápices de colores",
+        "precio": 3000,
+        "descripcion": "12 lápices de colores marca Filgo",
+        "img": "img/colores.jpg",
+        "cantidad": 1
+    },
+
+    {
+        "id": 7,
+        "nombre": "Fibras de colores",
+        "precio": 2500,
+        "descripcion": "6 marcadores tipo fibra marca Filgo",
+        "img": "img/fibras.jpg",
+        "cantidad": 1
+    },
+
+    {
+        "id": 8,
+        "nombre": "Cuadernos",
+        "precio": 1275,
+        "descripcion": "Cuadernos tapa dura marca Exito x120 hojas",
+        "img": "img/exito.jpg",
+        "cantidad": 1
+    },
+
+    {
+        "id": 9,
+        "nombre": "Cuadernos",
+        "precio": 1000,
+        "descripcion": "CCuadernos tapa dura marca Rivadavia x120 hojas",
+        "img": "img/rivadavia.jpg",
+        "cantidad": 1
+    },
+
+    {
+        "id": 10,
+        "nombre": "Conjunto League of Legends",
+        "precio": 3500,
+        "descripcion": "Carpeta + cartuchera con diseño temático de League of Legends",
+        "img": "img/lol.jpg",
+        "cantidad": 1
+    },
+    
+    {
+        "id": 11,
+        "nombre": "Mochilas lisas",
+        "precio": 15600,
+        "descripcion": "Mochila lisa de excelente calidad, color negra",
+        "img": "img/mochilisa.jpg",
+        "cantidad": 1
+    }
+]

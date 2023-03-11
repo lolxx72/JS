@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css" />
-    <title>LM - library</title>
-</head>
-<body>
-    <section class="container content-section">
-        <h1 class="section-header"> Books </h1>
-        <button id="boton-carrito"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>
-        <div class="shop-items"></div>
-    </section>
-
-    <div class="modal-contenedor">
-        <div class="modal-carrito">
-            <h3>Carrito</h3>
-            <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
-            <div id="carrito-contenedor">
-                <!-- <div class="productoEnCarrito">
-                    <p>Buzo 1</p>
-                    <p>Precio: $1200</p>
-                    <button class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
-                </div> -->
-            </div>
-            <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
-            <button id="vaciar-carrito" class="boton-agregar">Vaciar carrito</button>
-            <button id="finalizar-compra" class="boton-agregar">Comprar</button>
-        </div>
+    <script
+      src="https://kit.fontawesome.com/df59baf6b8.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>ML - Librerías</title>
+  </head>
+  <body>
+    <div class="nav-container">
+      <nav class="navbar">
+        <h1 class="navbar-logo"> Marie Librerías </h1>
+        <h1 class="ver-carrito" id="verCarrito"><i class="fas fa-shopping-cart"></i
+          ><span id="cantidadCarrito" class="cantidad-carrito">0</span>
+      </nav>
     </div>
 
+    <div class="banner">
+      <div class="banner-container">
+        <h1>Marie</h1>
+        <p>Hace años siendo la mejor del mercado</p>
+      </div>
+    </div>
 
+    <div id="shopContent" class="shop-content"></div>
 
-    <script src="main.js"></script>
-</body>
+    <div id="modal-container" class="modal-container"></div>
+
+    <script src="./js/app.js"></script>
+  </body>
 </html>
